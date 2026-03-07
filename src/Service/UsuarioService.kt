@@ -50,6 +50,7 @@ class UsuarioService {
     fun login() {
 
         while (true) {
+            println("--Login HotelVerdap--")
 
             println("Digite seu email")
             val emailUsuario = readln()
