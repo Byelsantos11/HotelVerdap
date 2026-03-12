@@ -31,6 +31,7 @@ class ReservaService {
         println("1 - Reservar")
         println("2 - Ver minhas reservas")
         println("3 - Remover reserva")
+        println("4 - Voltar")
 
         val escolha = readln().toIntOrNull()
 
@@ -43,6 +44,8 @@ class ReservaService {
             3 -> removerReserva(cliente)
 
             4 -> sair(cliente)
+
+
 
             else -> {
                 println("Opção inválida")
@@ -120,6 +123,7 @@ class ReservaService {
     }
 
 
+
     fun removerReserva(cliente: Cliente) {
 
         val reservaCliente = listaReservas.filter { it.nomeCliente == cliente.nomeCliente }
@@ -145,6 +149,7 @@ class ReservaService {
 
         reservarQuarto(cliente)
     }
+
 
     /**
      * Realiza o processo de reserva de um quarto específico.

@@ -68,7 +68,7 @@ class EventoService {
             participantes = mutableListOf(cliente)
         )
 
-        listaEventos.add(novoEvento)                                    //Adicionanod na lista de eventos
+        listaEventos.add(novoEvento)                                    //Adicionanar na lista de eventos
 
         println("Cliente ${cliente.nomeCliente} adicionado ao $nomeEvento")
         println("Acompanhantes: $acompanhantes")

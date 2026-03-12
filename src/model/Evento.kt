@@ -1,5 +1,5 @@
 package model
-
+//Classe Evento
 data class Evento(
     val nomeEvento: String,
     var capacidadeRestante: Int,
