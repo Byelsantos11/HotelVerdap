@@ -30,7 +30,8 @@ class ReservaService {
         println("Menu Reserva")
         println("1 - Reservar")
         println("2 - Ver minhas reservas")
-        println("3 - Voltar")
+        println("3 - Remover reserva")
+        println("4 - Voltar")
 
         val escolha = readln().toIntOrNull()
 
@@ -40,7 +41,11 @@ class ReservaService {
 
             2 -> verReserva(cliente)
 
-            3 -> sair(cliente)
+            3 -> removerReserva(cliente)
+
+            4 -> sair(cliente)
+
+
 
             else -> {
                 println("Opção inválida")
@@ -116,6 +121,35 @@ class ReservaService {
             }
         }
     }
+
+
+
+    fun removerReserva(cliente: Cliente) {
+
+        val reservaCliente = listaReservas.filter { it.nomeCliente == cliente.nomeCliente }
+
+        if (reservaCliente.isEmpty()) {
+            println("Você não possui reservas.")
+        } else {
+            reservaCliente.forEachIndexed { indice, reserva ->
+                println("${indice + 1} - Quarto: ${reserva.quarto}, Reservistas: ${reserva.reservistas}, Valor: R$${reserva.valorTotal}")
+            }
+
+            println("Digite o número da reserva que deseja remover:")
+            val opcao = readln().toIntOrNull()
+
+            if (opcao != null && opcao > 0 && opcao <= reservaCliente.size) {
+                val reservaParaRemover = reservaCliente[opcao - 1]
+                listaReservas.remove(reservaParaRemover)
+                println("Reserva removida com sucesso!")
+            } else {
+                println("Opção inválida.")
+            }
+        }
+
+        reservarQuarto(cliente)
+    }
+
 
     /**
      * Realiza o processo de reserva de um quarto específico.
