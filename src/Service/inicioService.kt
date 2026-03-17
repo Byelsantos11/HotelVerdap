@@ -10,6 +10,7 @@ class InicioService {
         val sairService = SairService()                 //Chamada das classes
         val reservaService = ReservaService()           //Chamada das classes
         val eventoService = EventoService()
+        val AbastecimentoService = AbastecimentoService()
 
 
         println("Bem vindo ao HotelVerdao ${cliente.nomeCliente}!")
@@ -17,6 +18,8 @@ class InicioService {
         println("1 - Sair")                                 //Menu visual para usuário
         println("2 - Reservar Quarto")
         println("3 - Eventos")
+        println("4 - Abastecimento ")
+
 
         val escolha = readln().toIntOrNull()
 
@@ -24,6 +27,7 @@ class InicioService {
             1 -> sairService.sair(cliente)      //Chamada da função sair
             2 -> reservaService.reservarQuarto(cliente) //Chamada do método reservarQuarto da classe ReservaService
             3-> eventoService.cadastroEvento(cliente)   //Chamada do método visualizarEventos da classe EventoService
+            4-> AbastecimentoService.menuAbastecimento(cliente) //Chamada do método menuAbastecimento da classe AbastecimentoService
             else -> {
                 println("Opção inválida")       //Opção de erro, caso não seja válida a escolha do usuário
                 menu(cliente)
